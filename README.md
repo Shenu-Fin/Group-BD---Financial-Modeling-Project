@@ -1,4 +1,4 @@
-# IVS: Dynamic Inverse Volatility Multi-Asset Strategy (Streamlit app)
+# IVS: Inverse Volatility Strategy (Streamlit app)
 
 2270 Financial Modeling, group assignment (Group BD).
 Team: Alberto (data), Beatriz (backtest engine), Margarida (metrics), Rodrigo and Francisco (prospectus), Yuling (app and QA).

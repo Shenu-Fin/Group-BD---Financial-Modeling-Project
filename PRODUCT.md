@@ -26,7 +26,7 @@ Opened in a desktop browser from the Streamlit Community Cloud link, deployed fr
 - Fixed: on-page wording (labels, captions, methodology text) stays word for word.
 
 ## Brand Commitments
-Name: IVS (Dynamic Inverse-Volatility Multi-Asset Strategy), Group BD, 2270 Financial Modeling. Disclaimer "Educational project. Not investment advice." must remain.
+Name: IVS (Inverse Volatility Strategy), Group BD, 2270 Financial Modeling. Disclaimer "Educational project. Not investment advice." must remain.
 
 ## Evidence on Hand
 Live market data (Yahoo Finance, FRED DGS3MO) computed at runtime. No testimonials, users or external claims exist; none may be invented.
