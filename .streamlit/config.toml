@@ -1,4 +1,4 @@
-# Money-app theme for the DIVMA dashboard: soft grey ground, white tiles, violet ink.
+# Money-app theme for the IVS dashboard: soft grey ground, white tiles, violet ink.
 [theme]
 base = "light"
 primaryColor = "#5B4BFF"

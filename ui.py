@@ -157,7 +157,7 @@ def header(title: str, lede: str, meta: dict, baseline: bool) -> None:
 <div class="hdr">
   <div class="hdr-top"><h1>{escape(title)}</h1>{status}</div>
   <p class="lede">{escape(lede)}</p>
-  <p class="name">DIVMA · Dynamic Inverse-Volatility Multi-Asset Strategy</p>
+  <p class="name">IVS · Dynamic Inverse-Volatility Multi-Asset Strategy</p>
   <div class="meta">{cells}</div>
 </div>""", unsafe_allow_html=True)
 

@@ -17,7 +17,7 @@ from data import load_all
 from engine import FREQ_RULE, PERIODS_PER_YEAR, run
 from metrics import perf_table, wealth
 
-st.set_page_config(page_title="DIVMA · Inverse-Volatility Multi-Asset Strategy", layout="wide",
+st.set_page_config(page_title="IVS · Inverse-Volatility Multi-Asset Strategy", layout="wide",
                    initial_sidebar_state="expanded")
 ui.inject_css()
 st.logo("assets/logo.svg", size="large")

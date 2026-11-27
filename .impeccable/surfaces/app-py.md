@@ -5,7 +5,7 @@ primary_target: "app.py"
 related_targets: ["ui.py"]
 ---
 
-Scope: DIVMA Streamlit app, all seven pages (app.py shell via ui.py + .streamlit/config.toml). Mode: Operate.
+Scope: IVS Streamlit app, all seven pages (app.py shell via ui.py + .streamlit/config.toml). Mode: Operate.
 Audience/job: professor and graders verify baseline results against the prospectus and try assumption changes. Constraints: no change to any number, calculation, or on-page wording; must deploy on Streamlit Community Cloud. Visual changes live in ui.py, config.toml, assets.
 
 ## Direction contract
@@ -16,7 +16,7 @@ OWN-WORLD: Ground #F4F4F6, tiles #FFFFFF radius 20 with soft offset shadow and n
 
 STORY: Grader lands on Overview, sees baseline status pill and period chips, edits assumptions in one tile, reads five KPI tiles, compares strategy vs 60/40 in two chart tiles, checks the measures table, then moves through the pill sidebar.
 
-FIRST VIEWPORT: White sidebar with DIVMA mark and pill-highlighted page list; main: title left with green status pill right, lede, a row of rounded period chips; assumptions tile; KPI row of five white tiles where the last, Growth of $1, is the black account card (signature move).
+FIRST VIEWPORT: White sidebar with IVS mark and pill-highlighted page list; main: title left with green status pill right, lede, a row of rounded period chips; assumptions tile; KPI row of five white tiles where the last, Growth of $1, is the black account card (signature move).
 
 FORM: Neobank app, my ranked candidate 1 (pick card). seed:1cb23b2aa442ad95
 

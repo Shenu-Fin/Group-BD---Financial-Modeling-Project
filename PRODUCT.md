@@ -10,7 +10,7 @@ web
 The professor and graders of course 2270 Financial Modeling. They open the app to assess Group BD's project: confirm that the baseline results match the group notebook and the written prospectus, and change a few assumptions to see how the strategy responds.
 
 ## Product Purpose
-DIVMA is an interactive backtest of a monthly-rebalanced inverse-volatility (risk parity) portfolio of SPY, IEF, GLD and SHY, compared with a 60/40 SPY/IEF benchmark (Mar 2005 – Oct 2026). Success means a grader can verify the figures quickly, trust that they match the prospectus, and explore the assumptions without help.
+IVS is an interactive backtest of a monthly-rebalanced inverse-volatility (risk parity) portfolio of SPY, IEF, GLD and SHY, compared with a 60/40 SPY/IEF benchmark (Mar 2005 – Oct 2026). Success means a grader can verify the figures quickly, trust that they match the prospectus, and explore the assumptions without help.
 
 ## Positioning
 The app runs the group notebook's own code (data, engine, metrics) live, so every number on screen is reproducible from the notebook at baseline settings, and every assumption change re-runs the full backtest.
@@ -26,7 +26,7 @@ Opened in a desktop browser from the Streamlit Community Cloud link, deployed fr
 - Fixed: on-page wording (labels, captions, methodology text) stays word for word.
 
 ## Brand Commitments
-Name: DIVMA (Dynamic Inverse-Volatility Multi-Asset Strategy), Group BD, 2270 Financial Modeling. Disclaimer "Educational project. Not investment advice." must remain.
+Name: IVS (Dynamic Inverse-Volatility Multi-Asset Strategy), Group BD, 2270 Financial Modeling. Disclaimer "Educational project. Not investment advice." must remain.
 
 ## Evidence on Hand
 Live market data (Yahoo Finance, FRED DGS3MO) computed at runtime. No testimonials, users or external claims exist; none may be invented.
