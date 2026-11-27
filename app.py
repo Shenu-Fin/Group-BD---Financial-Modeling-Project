@@ -216,6 +216,9 @@ def page_overview():
     ui.header("Portfolio Overview",
               "SPY · IEF · GLD · SHY weighted by 1/σ, versus a 60/40 SPY/IEF benchmark. "
               "Educational project. Not investment advice.", META, baseline)
+    ui.section("Model assumptions", "Change the inputs to re-run the backtest")
+    assumptions_panel()
+
     ui.section("Key metrics", f"Backtest {period_label}")
     kpi_row()
 
@@ -230,9 +233,6 @@ def page_overview():
 
     ui.section("Performance measures", "All four series")
     perf_measures()
-
-    ui.section("Model assumptions")
-    assumptions_panel()
 
 
 def page_performance():
@@ -278,8 +278,8 @@ def page_risk():
     ui.header("Risk & Drawdown", "Losses from previous peaks and rolling volatility.", META, baseline)
     r_b = bt_b["net_ret"]
     k = st.columns(4)
-    k[0].metric("Max DD · Inverse Vol", f"{table.loc[S_NET, 'Max Drawdown']:.2%}")
-    k[1].metric("Max DD · 60/40", f"{table.loc['60/40 Benchmark (net)', 'Max Drawdown']:.2%}")
+    k[0].metric("Max DD · Inverse Vol (net)", f"{table.loc[S_NET, 'Max Drawdown']:.2%}")
+    k[1].metric("Max DD · 60/40 (gross)", f"{table.loc[B_GROSS, 'Max Drawdown']:.2%}")
     k[2].metric(f"Worst {freq.lower()} return", f"{rp.min():.2%}", f"{rp.idxmin():%b %Y}",
                 delta_color="off", delta_arrow="off")
     k[3].metric(f"Positive {freq.lower()} returns", f"{(rp > 0).mean():.0%}",
@@ -298,18 +298,25 @@ def page_risk():
         st.plotly_chart(ui.style_fig(fig, 320, pct_axis=True), width="stretch")
 
 
+def rebal_turnover() -> pd.Series:
+    """Turnover per rebalance, without the first trade from cash (turnover = 100%).
+    That trade is only inside the reporting window when the lookback is 60 days or longer."""
+    to = bt_s["turnover"]
+    return to.iloc[1:] if to.iloc[0] > 0.999 else to
+
+
 def page_costs():
     ui.header("Transaction Costs", "Turnover at each rebalance and its drag on returns.", META, baseline)
     gap = m_s["Annualised avg return"] - table.loc["Inverse Vol (gross)", "Annualised avg return"]
     k = st.columns(4)
     k[0].metric("Cost rate", f"{tc_bps} bps", "per unit of turnover", delta_color="off", delta_arrow="off")
-    k[1].metric("Avg turnover", f"{bt_s['turnover'].iloc[1:].mean():.2%}", "per rebalance, after the first",
+    k[1].metric("Avg turnover", f"{rebal_turnover().mean():.2%}", "per rebalance, after the first",
                 delta_color="off", delta_arrow="off")
     k[2].metric("Cost drag per year", f"{bt_s['cost'].mean() * ppy:.3%}")
     k[3].metric("Net − gross ann. return", f"{gap:.3%}")
     ui.section("Turnover per rebalance", "First trade from cash (100%) excluded")
     with st.container(border=True):
-        to = bt_s["turnover"].iloc[1:]
+        to = rebal_turnover()
         fig = go.Figure(go.Bar(x=to.index, y=to, marker_color=ui.ACCENT, hovertemplate="%{y:.2%}",
                                name="Turnover"))
         st.plotly_chart(ui.style_fig(fig, 340, pct_axis=True), width="stretch")
@@ -375,6 +382,11 @@ on its own signal date. Within the period the holdings drift with prices.
 
 **Costs.** {tc_bps} bps × turnover, where turnover = Σ|w_target − w_drifted| (the first trade, from
 cash, counts as turnover of 100%). The cost is deducted from the following period's return.
+
+**Reporting window.** Results are always reported from {C.SAMPLE_START:%d %b %Y}, so every setting
+covers the same period as the prospectus. With a lookback shorter than 60 days the first weights
+exist before that date, so the first trade from cash (and its cost) falls before the reporting
+window and is not shown. At the baseline (60 days) the first trade is included, as in the notebook.
 
 **Data.** Daily adjusted closes (splits and distributions included) from the Yahoo Finance chart
 API, checked against the NYSE trading calendar. Risk-free rate: FRED DGS3MO, using for each day the
