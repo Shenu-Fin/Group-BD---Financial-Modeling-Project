@@ -1,0 +1,5 @@
+streamlit==1.67.0
+pandas==3.0.5
+numpy
+plotly==7.2.0
+pandas-market-calendars==5.3.0
