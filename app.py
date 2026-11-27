@@ -356,7 +356,7 @@ def page_sensitivity():
         fig.update_yaxes(autorange="reversed", gridcolor="rgba(0,0,0,0)")
         return fig
 
-    blues = [[0, "#F1F4F8"], [0.5, "#8FA6C7"], [1, "#1B365D"]]
+    blues = ui.HEAT_SCALE
     c = st.columns(2, gap="medium")
     with c[0], st.container(border=True):
         ui.panel_title("Sharpe ratio", "Rows: volatility lookback · columns: transaction cost")
