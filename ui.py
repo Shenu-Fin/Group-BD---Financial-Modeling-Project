@@ -72,6 +72,20 @@ html, body, [class*="st-"] {{ font-variant-numeric: tabular-nums; }}
 [data-testid="stMetricLabel"] p {{ font-size: 0.7rem !important; letter-spacing: 0.08em; text-transform: uppercase; color: {MUTED}; font-weight: 600; }}
 [data-testid="stMetricValue"] {{ font-size: 1.65rem !important; font-weight: 600; color: {INK}; }}
 [data-testid="stMetricDelta"] {{ font-size: 0.76rem; }}
+/* narrow windows: shrink the numbers instead of cutting them off ("3....") */
+[data-testid="stMetricValue"] {{ font-size: clamp(1.05rem, 1.7vw, 1.65rem) !important; }}
+[data-testid="stMetricValue"] > div, [data-testid="stMetricDelta"] > div {{
+    overflow: visible !important; text-overflow: clip !important; }}
+[data-testid="stMetricLabel"] p, [data-testid="stMetricLabel"] div {{
+    white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }}
+[data-testid="stMetricDelta"] > div {{ white-space: normal !important; }}
+[data-testid="stMetricLabel"] p {{ word-break: normal !important; overflow-wrap: normal !important; }}
+/* KPI rows wrap onto a second line instead of squeezing the cards */
+[data-testid="stHorizontalBlock"]:has(> [data-testid="stColumn"] [data-testid="stMetric"]) {{ flex-wrap: wrap; row-gap: 0.75rem; }}
+[data-testid="stHorizontalBlock"]:has(> [data-testid="stColumn"] [data-testid="stMetric"]) > [data-testid="stColumn"] {{ min-width: 150px !important; flex: 1 1 150px !important; }}
+@media (max-width: 1200px) {{
+    [data-testid="stMetric"] {{ padding: 0.7rem 0.6rem 0.6rem 0.6rem; }}
+}}
 </style>
 """
 
