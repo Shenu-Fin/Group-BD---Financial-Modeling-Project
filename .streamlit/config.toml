@@ -1,0 +1,27 @@
+# Institutional theme for the DIVMA dashboard (navy / white / muted blue).
+[theme]
+base = "light"
+primaryColor = "#1B365D"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F4F6F9"
+textColor = "#14233B"
+borderColor = "#DDE3EA"
+showWidgetBorder = true
+baseRadius = "4px"
+buttonRadius = "4px"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+headingFontWeights = [600, 600, 600, 600, 600, 600]
+linkColor = "#1B365D"
+dataframeHeaderBackgroundColor = "#F4F6F9"
+dataframeBorderColor = "#E4E9EF"
+chartCategoricalColors = ["#1B365D", "#8FA6C7", "#4A6FA5", "#C2CCD8"]
+
+[theme.sidebar]
+backgroundColor = "#0F2340"
+secondaryBackgroundColor = "#17305A"
+textColor = "#D5DDEA"
+primaryColor = "#FFFFFF"
+borderColor = "#243E66"
+
+[client]
+toolbarMode = "minimal"

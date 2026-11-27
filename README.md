@@ -21,7 +21,9 @@ At the baseline settings (`config.py`), the results match the group notebook and
 | `data.py` | Part 1 data pipeline: Yahoo adjusted closes (NYSE-calendar checked) and the FRED risk-free rate |
 | `engine.py` | Part 2 backtest engine: inverse-vol weights at each month-end, held the next month; drift, turnover, costs |
 | `metrics.py` | Ann. average return, volatility, Sharpe, non-annualised Beta, Jensen's Alpha, IR, Max DD |
-| `app.py` | Streamlit user interface |
+| `app.py` | Streamlit user interface: sidebar pages (Overview, Performance, Allocation, Risk & Drawdown, Transaction Costs, Sensitivity Analysis, Methodology) |
+| `ui.py` | Presentation helpers: palette, CSS, page header, chart styling (no calculations) |
+| `.streamlit/config.toml`, `assets/` | Theme (navy / white / muted blue) and sidebar logo |
 | `tests/` | Offline tests, including a look-ahead test (`pytest -q`) |
 
 ## Run locally
